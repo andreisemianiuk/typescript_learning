@@ -1,4 +1,6 @@
 import React from 'react'
+import Accordion from './Accordion'
+import Star from './Star'
 import './App.css'
 import Switch from './Switch'
 
@@ -7,10 +9,8 @@ function App() {
 	return (
 		<div className='App'>
 			<Switch />
-			<Switch />
-			<Switch />
-			<Switch />
-			<Switch />
+			<Accordion />
+			<Star />
 		</div>
 	)
 }

@@ -31,3 +31,16 @@
 .green {
   background-color: green;
 }
+
+.acc-title {
+  cursor: pointer;
+}
+
+.star-line {
+  display: inline-block;
+}
+
+.selected {
+  font-weight: 900;
+  margin-right: 3px;
+}
