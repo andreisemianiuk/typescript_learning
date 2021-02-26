@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function Accordion() {
+function UncontrolledAccordion() {
 	let [collapsed, setCollapsed] = useState<boolean>(true)
 
 	const changeCollapsed = () => {
@@ -9,7 +9,7 @@ function Accordion() {
 
 	return (
 		<div className='item'>
-			<AccordionTitle title={'Accordion'} collapsed={collapsed} changeCollapsed={changeCollapsed} />
+			<AccordionTitle title={'Uncontrolled Accordion'} collapsed={collapsed} changeCollapsed={changeCollapsed} />
 		</div>
 	)
 }
@@ -25,7 +25,7 @@ function AccordionTitle(props: AccordionTitleType) {
 		<h3 className={'acc-title'} onClick={props.changeCollapsed}>
 			{props.title}
 		</h3>
-		{props.collapsed ? <AccordionBody /> : null}
+		{!props.collapsed ? <AccordionBody /> : null}
 	</div>
 }
 
@@ -39,4 +39,4 @@ function AccordionBody() {
 
 
 
-export default Accordion
+export default UncontrolledAccordion
