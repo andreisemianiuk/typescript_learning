@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import UncontrolledAccordion from './Accordion/Accordion'
-import { ControlledAccordion } from './Accordion/ControlledAccordion'
 import UncontrolledRating from './Rating/UncontrolledRating'
 import ControlledRating from './Rating/ControlledRating'
 import UncontrolledSwitch from './Switch/UncontrolledSwitch'
 import ControlledSwitch from './Switch/ControlledSwitch'
 import './App.css'
+import { ControlledAccordion } from './Accordion/ControlledAccordion'
+import { UncontrolledAccordion } from './Accordion/UncontrolledAccordion'
 
 
 function App() {
