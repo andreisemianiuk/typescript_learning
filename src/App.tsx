@@ -20,7 +20,7 @@ function App() {
 		setRating(value)
 	}
 	// ControlledAccordion
-	let [collapsed, setCollapsed] = useState<boolean>(true)
+	const [collapsed, setCollapsed] = useState<boolean>(true)
 	const changeCollapsed = () => {
 		setCollapsed(!collapsed)
 	}
