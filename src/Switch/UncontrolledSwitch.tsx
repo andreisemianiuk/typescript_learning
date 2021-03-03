@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 function UncontrolledSwitch() {
-	let [isOn, setIsOn] = useState<boolean>(true)
+	const [isOn, setIsOn] = useState<boolean>(true)
 	const switchHandler = (e: React.MouseEvent) => {
 		const value = e.currentTarget.innerHTML
 		if (value === 'on') {
