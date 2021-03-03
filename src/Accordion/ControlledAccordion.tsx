@@ -30,7 +30,3 @@ function AccordionBody() {
 		<li>3</li>
 	</ul>
 }
-
-
-
-// export default Accordion

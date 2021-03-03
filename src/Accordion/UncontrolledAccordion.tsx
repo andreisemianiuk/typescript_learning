@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function UncontrolledAccordion() {
+export function UncontrolledAccordion() {
 	let [collapsed, setCollapsed] = useState<boolean>(true)
 
 	const changeCollapsed = () => {
@@ -14,7 +14,7 @@ function UncontrolledAccordion() {
 	)
 }
 
-type AccordionTitleType = {
+export type AccordionTitleType = {
 	title: string
 	collapsed: boolean
 	changeCollapsed: () => void
@@ -36,7 +36,3 @@ function AccordionBody() {
 		<li>3</li>
 	</ul>
 }
-
-
-
-export default UncontrolledAccordion
