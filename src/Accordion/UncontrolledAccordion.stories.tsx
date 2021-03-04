@@ -1,5 +1,6 @@
 import React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
+// also exported from '@storybook/react' if you can deal with breaking changes in 6.1
+import { Meta } from '@storybook/react/types-6-0'
 import { UncontrolledAccordion } from './UncontrolledAccordion';
 
 export default {
@@ -7,4 +8,6 @@ export default {
 	component: UncontrolledAccordion,
 } as Meta
 
-export const UncontrolledAcc = () => <UncontrolledAccordion />
+export const AccordionChanging = () => {
+	return <UncontrolledAccordion />
+}

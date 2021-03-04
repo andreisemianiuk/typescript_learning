@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import UncontrolledRating from './Rating/UncontrolledRating'
-import ControlledRating from './Rating/ControlledRating'
-import UncontrolledSwitch from './Switch/UncontrolledSwitch'
-import ControlledSwitch from './Switch/ControlledSwitch'
+import { UncontrolledRating } from './Rating/UncontrolledRating'
+import { ControlledRating, RatingType } from './Rating/ControlledRating'
+import { UncontrolledSwitch } from './Switch/UncontrolledSwitch'
+import { ControlledSwitch } from './Switch/ControlledSwitch'
 import './App.css'
 import { ControlledAccordion } from './Accordion/ControlledAccordion'
 import { UncontrolledAccordion } from './Accordion/UncontrolledAccordion'
@@ -10,13 +10,13 @@ import { UncontrolledAccordion } from './Accordion/UncontrolledAccordion'
 
 function App() {
 	// ControlledSwitch
-	const [isOn, setIsOn] = useState<boolean>(false)
-	const changeIsOn = () => {
-		setIsOn(!isOn)
+	const [on, setOn] = useState<boolean>(false)
+	const changeOn = (on: boolean): void => {
+		setOn(on)
 	}
 	// ControlledStar
-	const [rating, setRating] = useState<number>(0)
-	const onChangeRatingValue = (value: number): void => {
+	const [rating, setRating] = useState<RatingType>(0)
+	const changeRatingValue = (value: RatingType): void => {
 		setRating(value)
 	}
 	// ControlledAccordion
@@ -27,11 +27,11 @@ function App() {
 
 	return (
 		<div className='App'>
-			<ControlledSwitch title={'Controlled Switch'} isOn={isOn} changeIsOn={changeIsOn} />
-			<UncontrolledSwitch />
+			<ControlledSwitch title={'Controlled Switch'} on={on} changeOn={changeOn} />
+			<UncontrolledSwitch onChange={x => x} />
 			<hr />
-			<ControlledRating title={'Controlled Rating'} rating={rating} toggleRating={onChangeRatingValue} />
-			<UncontrolledRating />
+			<ControlledRating title={'Controlled Rating'} rating={rating} toggleRating={changeRatingValue} />
+			<UncontrolledRating onChange={x => x} />
 			<hr />
 			<ControlledAccordion title={'Contolled Accordion'} collapsed={collapsed} changeCollapsed={changeCollapsed} />
 			<UncontrolledAccordion />

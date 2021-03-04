@@ -1,6 +1,6 @@
 import React from 'react'
 
-type ControlledAccordionType = {
+export type ControlledAccordionType = {
 	title: string
 	collapsed: boolean
 	changeCollapsed: () => void
@@ -16,10 +16,10 @@ export function ControlledAccordion(props: ControlledAccordionType) {
 
 function AccordionTitle(props: ControlledAccordionType) {
 	return <div>
-		<h3 className={'acc-title'} onClick={props.changeCollapsed}>
+		<h3 className={'acc-title'} onClick={() => props.changeCollapsed()}>
 			{props.title}
 		</h3>
-		{!props.collapsed ? <AccordionBody /> : null}
+		{!props.collapsed && <AccordionBody />}
 	</div>
 }
 

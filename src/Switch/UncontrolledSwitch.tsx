@@ -1,39 +1,49 @@
 import React, { useState } from 'react'
 
-function UncontrolledSwitch() {
-	const [isOn, setIsOn] = useState<boolean>(true)
-	const switchHandler = (e: React.MouseEvent) => {
-		const value = e.currentTarget.innerHTML
-		if (value === 'on') {
-			setIsOn(true)
-		}
-		if (value === 'off') {
-			setIsOn(false)
-		}
+export type UncontrolledSwitchType = {
+	defaultValue?: boolean
+	onChange: (on: boolean) => void
+}
+
+export function UncontrolledSwitch({ defaultValue, onChange }: UncontrolledSwitchType) {
+	const [on, setOn] = useState<boolean>(defaultValue ? defaultValue : true)
+
+	const onStyle = {
+		display: 'inline-block',
+		border: '1px solid #333',
+		borderRadius: '2px',
+		padding: '3px 10px',
+		cursor: 'pointer',
+		backgroundColor: on ? 'green' : 'white'
+	}
+
+	const offStyle = {
+		display: 'inline-block',
+		border: '1px solid #333',
+		borderRadius: '2px',
+		padding: '3px 10px',
+		cursor: 'pointer',
+		backgroundColor: !on ? 'red' : 'white'
+	}
+
+	const indicatorStyle = {
+		display: 'inline-block',
+		width: '10px',
+		height: '10px',
+		marginLeft: '10px',
+		border: '1px solid #333',
+		borderRadius: '50%',
+		backgroundColor: on ? 'green' : 'red'
 	}
 
 	return (
 		<div className='item'>
 			<h5>Uncontrolled Switch</h5>
-			<SwitchItem isOn={isOn} switchHandler={switchHandler} />
+			<div>
+				<span style={onStyle} onClick={() => { setOn(true); onChange(true) }}>on</span>
+				<span style={offStyle} onClick={() => { setOn(false); onChange(false) }}>off</span>
+				<span style={indicatorStyle} />
+			</div>
 		</div>
 	)
 }
-
-type SwitchItemPropsType = {
-	isOn: boolean
-	switchHandler: (event: React.MouseEvent) => void
-}
-
-function SwitchItem(props: SwitchItemPropsType) {
-	return (
-		<>
-			<span className={`btn ${props.isOn ? 'green' : ''}`} onClick={props.switchHandler}>on</span>
-			<span className={`btn ${!props.isOn ? 'red' : ''}`} onClick={props.switchHandler}>off</span>
-			<span className={`ball ${props.isOn ? 'green' : 'red'}`} />
-		</>
-	)
-}
-
-
-export default UncontrolledSwitch

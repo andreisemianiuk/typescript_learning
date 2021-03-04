@@ -25,7 +25,7 @@ function AccordionTitle(props: AccordionTitleType) {
 		<h3 className={'acc-title'} onClick={props.changeCollapsed}>
 			{props.title}
 		</h3>
-		{!props.collapsed ? <AccordionBody /> : null}
+		{!props.collapsed && <AccordionBody />}
 	</div>
 }
 

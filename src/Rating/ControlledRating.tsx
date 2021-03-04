@@ -1,12 +1,14 @@
 import React from 'react'
 
-type ControlledRatingType = {
+export type RatingType = 0 | 1 | 2 | 3 | 4 | 5
+
+export type ControlledRatingType = {
 	title: string
-	rating: number
-	toggleRating: (value: number) => void
+	rating: RatingType
+	toggleRating: (value: RatingType) => void
 }
 
-function ControlledRating(props: ControlledRatingType) {
+export function ControlledRating(props: ControlledRatingType) {
 	return (
 		<div className='item'>
 			<h5>{props.title}</h5>
@@ -16,8 +18,8 @@ function ControlledRating(props: ControlledRatingType) {
 }
 
 type StarBodyType = {
-	rating: number
-	toggleRating: (value: number) => void
+	rating: RatingType
+	toggleRating: (value: RatingType) => void
 }
 
 function StarBody(props: StarBodyType) {
@@ -31,25 +33,20 @@ function StarBody(props: StarBodyType) {
 }
 
 type StarItemType = {
-	rating: number
-	value: number
-	toggleRating: (value: number) => void
+	rating: RatingType
+	value: RatingType
+	toggleRating: (value: RatingType) => void
 }
 
 
-function StarItem(props: StarItemType) {
-	const rating = props.rating
-	const tagClass = `${rating >= props.value ? 'selected' : null}`
+function StarItem({ rating, toggleRating, value }: StarItemType) {
 	const toggleRatingHandler = () => {
-		props.toggleRating(props.value)
+		toggleRating(value)
 	}
 
-
 	return (
-		<span className={tagClass}>
-			star<button onClick={toggleRatingHandler}>{props.value}</button>
+		<span>
+			{rating >= value ? <b>star</b> : 'star'}<button onClick={toggleRatingHandler}>{value}</button>
 		</span>
 	)
 }
-
-export default ControlledRating
