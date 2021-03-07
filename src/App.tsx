@@ -6,6 +6,7 @@ import { ControlledSwitch } from './Switch/ControlledSwitch'
 import './App.css'
 import { Accordion } from './Accordion/Accordion'
 import { UncontrolledAccordion } from './Accordion/UncontrolledAccordion'
+import { Select } from './Select/Select'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
 	}
 
 	const people = [
+		{ name: 'None', value: 0 },
 		{ name: 'Kolya', value: 1 },
 		{ name: 'Petya', value: 2 },
 		{ name: 'Vova', value: 3 },
@@ -38,6 +40,7 @@ function App() {
 
 	return (
 		<div className='App'>
+			<Select title={'Friends'} items={people} />
 			<ControlledSwitch title={'Controlled Switch'} on={on} changeOn={changeOn} />
 			<UncontrolledSwitch onChange={x => x} />
 			<hr />
