@@ -4,7 +4,7 @@ import { ControlledRating, RatingType } from './Rating/ControlledRating'
 import { UncontrolledSwitch } from './Switch/UncontrolledSwitch'
 import { ControlledSwitch } from './Switch/ControlledSwitch'
 import './App.css'
-import { ControlledAccordion } from './Accordion/ControlledAccordion'
+import { Accordion } from './Accordion/Accordion'
 import { UncontrolledAccordion } from './Accordion/UncontrolledAccordion'
 
 
@@ -25,6 +25,17 @@ function App() {
 		setCollapsed(!collapsed)
 	}
 
+	const people = [
+		{ name: 'Kolya', value: 1 },
+		{ name: 'Petya', value: 2 },
+		{ name: 'Vova', value: 3 },
+		{ name: 'Sasha', value: 4 }
+	]
+
+	const onClick = (value: number, name: string) => {
+		alert(`Hello ${name}!Your value is ${value}`)
+	}
+
 	return (
 		<div className='App'>
 			<ControlledSwitch title={'Controlled Switch'} on={on} changeOn={changeOn} />
@@ -33,7 +44,13 @@ function App() {
 			<ControlledRating title={'Controlled Rating'} rating={rating} toggleRating={changeRatingValue} />
 			<UncontrolledRating onChange={x => x} />
 			<hr />
-			<ControlledAccordion title={'Contolled Accordion'} collapsed={collapsed} changeCollapsed={changeCollapsed} />
+			<Accordion
+				title={'Contolled Accordion'}
+				collapsed={collapsed}
+				changeCollapsed={changeCollapsed}
+				items={people}
+				onClick={onClick}
+			/>
 			<UncontrolledAccordion />
 		</div>
 	)
