@@ -9,15 +9,12 @@ export default {
 	component: Select,
 } as Meta
 
-// const callback = action('accordion mode try to change')
-// const callbackClickItem = action('item was clicked')
-
 const Template: Story<SelectType> = (args) => <Select {...args} />
-
 
 export const Select1 = Template.bind({});
 Select1.args = {
 	items: [
+		{ name: 'None', value: 0 },
 		{ name: 'Kolya', value: 1 },
 		{ name: 'Petya', value: 2 },
 		{ name: 'Vova', value: 3 },

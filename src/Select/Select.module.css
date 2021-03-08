@@ -3,9 +3,11 @@
   width: 100px;
   font-size: 20px;
   padding-bottom: 3px;
+  margin-bottom: 2px;
   text-align: center;
   border-bottom: 1px solid grey;
   cursor: pointer;
+  /* outline: none; */
 }
 
 .box:hover {
@@ -39,7 +41,13 @@
   opacity: 0.7;
 }
 
-.friend:hover {
+/* .friend:hover {
+  color: floralwhite;
+  background-color: darkslategrey;
+  opacity: 1;
+} */
+
+.friend.hover {
   color: floralwhite;
   background-color: darkslategrey;
   opacity: 1;

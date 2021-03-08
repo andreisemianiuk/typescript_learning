@@ -1,4 +1,4 @@
-import React, { useState, KeyboardEvent } from 'react'
+import React, { useState, KeyboardEvent, MouseEvent, useRef } from 'react'
 import s from './Select.module.css'
 
 
@@ -13,7 +13,7 @@ export type SelectType = {
 }
 
 export function Select(props: SelectType) {
-	const [value, setValue] = useState<number>(0)
+	let [value, setValue] = useState<number>(0)
 	const [collapsed, setCollapsed] = useState<boolean>(true)
 
 	const currentFriend = props.items.find(i => i.value === value)?.name
@@ -28,8 +28,31 @@ export function Select(props: SelectType) {
 	}
 
 	const pressHandler = (e: KeyboardEvent<HTMLDivElement>) => {
+
 		if (e.key === 'Enter') {
 			setCollapsed(!collapsed)
+		} else if (e.key === 'ArrowDown') {
+			if (value < props.items.length - 1) {
+				setValue(++value)
+			} else {
+				setValue(0)
+			}
+		} else if (e.key === 'ArrowUp') {
+			if (value) {
+				setValue(--value)
+			} else {
+				setValue(4)
+			}
+		} else if (e.key === 'Escape') {
+			setCollapsed(true)
+		}
+	}
+
+	const mouseHandler = (e: MouseEvent<HTMLDivElement>) => {
+		const current = props.items.find(v => v.name === e.currentTarget.innerText)
+
+		if (current?.value || current?.name === 'None') {
+			setValue(current.value)
 		}
 	}
 
@@ -51,9 +74,11 @@ export function Select(props: SelectType) {
 			{!collapsed &&
 				<div className={s.list}>
 					{props.items.map(m =>
-						<div className={s.friend}
+						<div className={`${s.friend} ${m.value === value ? `${s.hover}` : ''}`}
 							onClick={() => chooseFriend(m.value)}
 							tabIndex={0}
+							onKeyUp={pressHandler}
+							onMouseOver={mouseHandler}
 						>
 							{m.name}
 						</div>)
