@@ -1,4 +1,4 @@
-import React, { useState, KeyboardEvent, MouseEvent, useRef } from 'react'
+import React, { useState, KeyboardEvent, MouseEvent } from 'react'
 import s from './Select.module.css'
 
 
