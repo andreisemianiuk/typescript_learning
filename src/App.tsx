@@ -7,6 +7,7 @@ import './App.css'
 import { Accordion } from './Accordion/Accordion'
 import { UncontrolledAccordion } from './Accordion/UncontrolledAccordion'
 import { Select } from './Select/Select'
+import ChampionsLeague from './stories/React_Memo/ReactMemo'
 
 
 function App() {
@@ -25,7 +26,6 @@ function App() {
 	const changeCollapsed = () => {
 		setCollapsed(!collapsed)
 	}
-
 	const people = [
 		{ name: 'None', value: 0 },
 		{ name: 'Kolya', value: 1 },
@@ -33,13 +33,13 @@ function App() {
 		{ name: 'Vova', value: 3 },
 		{ name: 'Sasha', value: 4 }
 	]
-
 	const onClick = (value: number, name: string) => {
 		alert(`Hello ${name}!Your value is ${value}`)
 	}
 
 	return (
 		<div className='App'>
+			<ChampionsLeague />
 			<Select title={'Friends'} items={people} />
 			<ControlledSwitch title={'Controlled Switch'} on={on} changeOn={changeOn} />
 			<UncontrolledSwitch onChange={x => x} />
