@@ -9,6 +9,3 @@ export default {
 const Template: Story<any> = (args) => <ChampionsLeague {...args} />;
 
 export const Teams = Template.bind({});
-	// Teams.args = {
-	//   label: 'Button',
-	// };
