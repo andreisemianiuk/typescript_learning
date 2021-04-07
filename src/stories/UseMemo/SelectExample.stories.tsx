@@ -14,27 +14,27 @@ export const SelectExample = () => {
 		{
 			name: 'Minsk',
 			country: 'Belarus',
-			population: 8.5
+			population: '8.5'
 		},
 		{
 			name: 'Kiev',
 			country: 'Ukraine',
-			population: 10
+			population: '10'
 		},
 		{
 			name: 'Moscow',
 			country: 'Russia',
-			population: 15
+			population: '15'
 		},
 		{
 			name: 'Brest',
 			country: 'Belarus',
-			population: 0.3
+			population: '0.3'
 		},
 		{
 			name: 'Gomel',
 			country: 'Belarus',
-			population: 0.5
+			population: '0.5'
 		}
 	]
 	)
